@@ -1,1 +1,0 @@
-// Movie detail page
