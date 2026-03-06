@@ -1,0 +1,8 @@
+{
+  "name": "@phoenix/ui",
+  "version": "0.1.0",
+  "private": true,
+  "peerDependencies": {
+    "react": "^18.0.0"
+  }
+}
