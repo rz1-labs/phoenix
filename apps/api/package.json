@@ -3,7 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "nodemon --exec \"node -r esbuild-register ./app.ts\" -e .ts"
+    "build": "tsc",
+    "dev": "nodemon --exec \"node -r esbuild-register ./app.ts\" -e .ts",
+    "start": "node -r esbuild-register ./app.ts",
+    "test": "jest --detectOpenHandles"
   },
   "dependencies": {
     "@phoenix/logger": "*",
