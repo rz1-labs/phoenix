@@ -1,0 +1,45 @@
+{
+  "name": "@phoenix/api-v0",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf dist",
+    "dev": "nodemon --exec \"node -r esbuild-register ./src/index.ts\" -e .ts",
+    "start": "node -r esbuild-register ./src/index.ts",
+    "test": "jest --detectOpenHandles"
+  },
+  "dependencies": {
+    "@phoenix/logger": "*",
+    "body-parser": "^2.2.2",
+    "cookie-parser": "~1.4.4",
+    "cors": "^2.8.6",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "morgan": "~1.9.1",
+    "pug": "2.0.0-beta11",
+    "serverless-http": "^4.0.0"
+  },
+  "devDependencies": {
+    "@jest/globals": "^30.2.0",
+    "@phoenix/eslint-config": "*",
+    "@phoenix/jest-presets": "*",
+    "@phoenix/typescript-config": "*",
+    "@types/body-parser": "^1.19.6",
+    "@types/cookie-parser": "^1.4.10",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/http-errors": "^2.0.5",
+    "@types/morgan": "^1.9.10",
+    "@types/node": "^25.3.5",
+    "@types/supertest": "^7.2.0",
+    "esbuild": "^0.27.3",
+    "esbuild-register": "^3.6.0",
+    "eslint": "^10.0.3",
+    "jest": "^30.2.0",
+    "nodemon": "^3.1.14",
+    "supertest": "^7.2.2",
+    "typescript": "^5.9.3"
+  }
+}
