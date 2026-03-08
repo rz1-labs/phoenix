@@ -7,3 +7,5 @@ const server = createServer();
 server.listen(port, () => {
   log(`api running on ${port}`);
 });
+
+export default server;

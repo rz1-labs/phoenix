@@ -36,10 +36,3 @@ export const createServer = (): Express => {
 
   return app;
 };
-
-// Vercel (and some other platforms) expect the default export to be a
-// function or an Express server instance.  We keep the named export for
-// internal use/tests but also expose it as the default so that when the
-// compiled `dist/server.js` file is imported by a deployment bundle it
-// satisfies the requirement.
-export default createServer;
