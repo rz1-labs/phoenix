@@ -1,6 +1,6 @@
 import supertest from "supertest";
 import { describe, it, expect } from "@jest/globals";
-import createServer, { createServer as createServerNamed } from "../server";
+import { createServer } from "../server";
 
 // The tests currently use the named export; we still reference that to
 // avoid a refactor in every call site.  However, each import path goes
