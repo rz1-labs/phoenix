@@ -14,6 +14,10 @@
     "react-dom": "^19.2.0"
   },
   "devDependencies": {
+    "@phoenix/logger": "*",
+    "@phoenix/eslint-config": "*",
+    "@phoenix/jest-presets": "*",
+    "@phoenix/typescript-config": "*",
     "@eslint/js": "^9.39.1",
     "@types/node": "^24.10.1",
     "@types/react": "^19.2.7",

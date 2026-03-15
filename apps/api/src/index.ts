@@ -36,6 +36,7 @@ app
   });
 
 app.listen(port, () => {
+  console.log("process", process.env);
   log(`api running on ${port}`);
 });
 
