@@ -3,6 +3,9 @@ import { json, urlencoded } from "body-parser";
 import express, { type Express } from "express";
 import morgan from "morgan";
 import cors from "cors";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const port = process.env.PORT || 3002;
 const app: Express = express();
@@ -36,7 +39,6 @@ app
   });
 
 app.listen(port, () => {
-  console.log("process", process.env);
   log(`api running on ${port}`);
 });
 
