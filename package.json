@@ -2,6 +2,7 @@
   "name": "phoenix",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "workspaces": ["apps/*", "packages/*"],
   "scripts": {
     "build": "turbo run build",
