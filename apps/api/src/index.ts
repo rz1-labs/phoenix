@@ -1,5 +1,5 @@
-import { createApp } from "./app";
-import { startServer } from "./server";
+import { createApp } from "./app.js";
+import { startServer } from "./server.js";
 
 /**
  * Entry point for the Phoenix API.

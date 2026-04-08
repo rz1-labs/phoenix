@@ -1,7 +1,7 @@
 import { log } from "@phoenix/logger";
 import { type Express } from "express";
-import { createApp } from "./app";
-import { config } from "./config/env";
+import { createApp } from "./app.js";
+import { config } from "./config/env.js";
 
 /**
  * Start the Express server and listen for incoming requests.
@@ -24,16 +24,5 @@ export async function startServer(app: Express = createApp()): Promise<void> {
     } catch (error) {
       reject(error);
     }
-  });
-}
-
-/**
- * Standalone CLI entry point.
- * Starts the server and handles process signals.
- */
-if (require.main === module) {
-  startServer().catch((error) => {
-    console.error("Failed to start server:", error);
-    process.exit(1);
   });
 }
