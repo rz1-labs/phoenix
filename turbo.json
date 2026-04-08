@@ -3,6 +3,7 @@
   "globalDependencies": [".env"],
   "tasks": {
     "build": {
+      "env": ["PORT", "NODE_ENV", "TMDB_API_KEY", "TMDB_BASE_URL"],
       "inputs": ["$TURBO_DEFAULT$", ".env*"],
       "outputs": ["dist/**"],
       "dependsOn": ["^build"]
