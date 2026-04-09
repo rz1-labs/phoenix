@@ -3,13 +3,11 @@
   "globalDependencies": [".env"],
   "tasks": {
     "build": {
-      "env": ["PORT"],
       "inputs": ["$TURBO_DEFAULT$", ".env*"],
       "outputs": ["dist/**"],
       "dependsOn": ["^build"]
     },
     "start": {
-      "env": ["PORT"],
       "inputs": ["$TURBO_DEFAULT$", ".env*"],
       "dependsOn": ["build"]
     },
