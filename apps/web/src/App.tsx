@@ -1,135 +1,168 @@
-import { useState } from "react";
+﻿import { useState } from "react";
+
+const MOVIES = ["THE NEON DEMON", "MULHOLLAND DRIVE", "LOST HIGHWAY"];
+
+const HISTORY = [
+  {
+    idx: "01",
+    name: "THE RIALTO CINEMA",
+    location: "BERLIN, GERMANY",
+    duration: "12 Weeks",
+    year: "2024",
+  },
+  {
+    idx: "02",
+    name: "METRO ART HOUSE",
+    location: "PARIS, FRANCE",
+    duration: "8 Weeks",
+    year: "2023",
+  },
+  {
+    idx: "03",
+    name: "CINEMA DE LA VILLE",
+    location: "BRUSSELS, BELGIUM",
+    duration: "14 Weeks",
+    year: "2023",
+  },
+];
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [movieIndex, setMovieIndex] = useState(0);
 
   return (
-    <main className="min-h-screen overflow-hidden bg-(--hero-background) text-(--text-strong)">
-      <div className="mx-auto flex min-h-screen max-w-6xl flex-col justify-center px-6 py-16 sm:px-10 lg:px-12">
-        <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(320px,0.85fr)]">
-          <section className="space-y-8">
-            <div className="inline-flex items-center gap-3 rounded-full border border-(--border-soft) bg-(--surface-pill) px-4 py-2 text-sm tracking-[0.24em] text-(--text-soft) uppercase backdrop-blur-sm">
-              <span className="h-2 w-2 rounded-full bg-accent-400" />
-              Phoenix Web
-            </div>
-
-            <div className="space-y-5">
-              <p className="max-w-xl text-sm font-medium tracking-[0.3em] text-brand-500 uppercase dark:text-brand-300">
-                Film discovery across web, mobile, and API
-              </p>
-              <h1 className="max-w-3xl text-5xl font-semibold tracking-tight text-balance sm:text-6xl lg:text-7xl">
-                A sharper front row for every movie night.
-              </h1>
-              <p className="max-w-2xl text-base leading-7 text-(--text-muted) sm:text-lg">
-                Tailwind now drives the entire web surface, so the UI lives
-                where the markup does and the leftover starter CSS is gone.
-              </p>
-            </div>
-
-            <div className="flex flex-col gap-4 sm:flex-row">
+    <main className="flex min-h-screen bg-[#080c18] text-white">
+      <aside className="flex w-[38%] shrink-0 flex-col gap-10 border-r border-white/8 p-10">
+        <header>
+          <h1 className="text-2xl font-bold tracking-[0.2em] text-cyan-400">
+            CINEMA NOIR
+          </h1>
+          <p className="mt-1 text-[10px] tracking-[0.3em] text-white/30 uppercase">
+            The Digital Auteur Registry
+          </p>
+        </header>
+        <div>
+          <p className="mb-4 text-[10px] tracking-[0.28em] text-white/30 uppercase">
+            Select Active Feature
+          </p>
+          <div className="flex items-center justify-between border-l-2 border-cyan-400 py-2 pl-4">
+            <span className="text-xl font-bold tracking-wider">
+              {MOVIES[movieIndex]}
+            </span>
+            <div className="ml-4 flex flex-col gap-1">
               <button
                 type="button"
-                onClick={() => setCount((value) => value + 1)}
-                className="inline-flex items-center justify-center rounded-full bg-brand-400 px-6 py-3 text-sm font-semibold text-white transition hover:bg-brand-500 focus:outline-none focus:ring-2 focus:ring-(--focus-ring) focus:ring-offset-2 focus:ring-offset-(--surface-canvas)"
+                onClick={() =>
+                  setMovieIndex((i) => (i - 1 + MOVIES.length) % MOVIES.length)
+                }
+                className="leading-none text-cyan-400 transition hover:text-cyan-300"
+                aria-label="Previous"
               >
-                Queue screening #{count + 1}
+                ▲
               </button>
-              <div className="inline-flex items-center rounded-full border border-(--border-soft) bg-(--surface-pill) px-5 py-3 text-sm text-(--text-muted) backdrop-blur-sm">
-                Demo clicks recorded: {count}
-              </div>
+              <button
+                type="button"
+                onClick={() => setMovieIndex((i) => (i + 1) % MOVIES.length)}
+                className="leading-none text-cyan-400 transition hover:text-cyan-300"
+                aria-label="Next"
+              >
+                ▼
+              </button>
             </div>
-
-            <div className="grid gap-4 sm:grid-cols-3">
-              <div className="rounded-3xl border border-(--border-soft) bg-(--surface-soft) p-5 backdrop-blur-sm">
-                <p className="text-sm text-(--text-soft)">Live stack</p>
-                <p className="mt-2 text-2xl font-semibold text-(--text-strong)">
-                  Vite + React 19
-                </p>
-              </div>
-              <div className="rounded-3xl border border-(--border-soft) bg-(--surface-soft) p-5 backdrop-blur-sm">
-                <p className="text-sm text-(--text-soft)">Styling</p>
-                <p className="mt-2 text-2xl font-semibold text-(--text-strong)">
-                  Tailwind 4
-                </p>
-              </div>
-              <div className="rounded-3xl border border-(--border-soft) bg-(--surface-soft) p-5 backdrop-blur-sm">
-                <p className="text-sm text-(--text-soft)">Monorepo</p>
-                <p className="mt-2 text-2xl font-semibold text-(--text-strong)">
-                  Turbo workspace
-                </p>
-              </div>
-            </div>
-          </section>
-
-          <aside className="relative">
-            <div
-              className="absolute inset-0 rounded-panel bg-brand-400/15 blur-3xl"
-              aria-hidden="true"
-            />
-            <div className="relative overflow-hidden rounded-panel border border-(--border-soft) bg-(--surface-elevated) p-6 shadow-panel backdrop-blur-md">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm text-(--text-soft)">Now previewing</p>
-                  <h2 className="mt-1 text-2xl font-semibold text-(--text-strong)">
-                    Phoenix Control Panel
-                  </h2>
-                </div>
-                <span className="rounded-full border border-(--status-border) bg-(--status-bg) px-3 py-1 text-xs font-medium text-(--status-text)">
-                  Ready
-                </span>
-              </div>
-
-              <div className="mt-8 space-y-4">
-                <div className="rounded-2xl bg-(--surface-soft) p-4">
-                  <div className="flex items-center justify-between text-sm text-(--text-muted)">
-                    <span>Launch prep</span>
-                    <span>92%</span>
-                  </div>
-                  <div className="mt-3 h-2 rounded-full bg-(--border-soft)">
-                    <div className="h-2 w-[92%] rounded-full bg-linear-to-r from-brand-300 via-sky-400 to-brand-500" />
-                  </div>
-                </div>
-
-                <div className="grid gap-4 sm:grid-cols-2">
-                  <div className="rounded-2xl border border-(--border-soft) bg-(--surface-soft) p-4">
-                    <p className="text-sm text-(--text-soft)">
-                      Responsive shells
-                    </p>
-                    <p className="mt-2 text-3xl font-semibold text-(--text-strong)">
-                      3
-                    </p>
-                    <p className="mt-1 text-sm text-(--text-muted)">
-                      Web, mobile, and API aligned.
-                    </p>
-                  </div>
-                  <div className="rounded-2xl border border-(--border-soft) bg-(--surface-soft) p-4">
-                    <p className="text-sm text-(--text-soft)">
-                      Starter CSS left
-                    </p>
-                    <p className="mt-2 text-3xl font-semibold text-(--text-strong)">
-                      0
-                    </p>
-                    <p className="mt-1 text-sm text-(--text-muted)">
-                      Component styles now live in JSX.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="rounded-2xl border border-dashed border-(--border-strong) bg-(--surface-inset) p-4">
-                  <p className="text-sm font-medium text-(--text-strong)">
-                    Next useful move
-                  </p>
-                  <p className="mt-2 text-sm leading-6 text-(--text-soft)">
-                    Wire these blocks to real movie and alert data from the
-                    shared packages when you are ready to move beyond the
-                    scaffold.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </aside>
+          </div>
         </div>
-      </div>
+        <div className="flex flex-1 flex-col justify-end">
+          <div className="flex h-56 w-full items-end justify-center rounded bg-[#0d1626] p-3">
+            <p className="text-[10px] tracking-[0.28em] text-white/25 uppercase">
+              Frame No. 042
+            </p>
+          </div>
+        </div>
+      </aside>
+      <section className="flex flex-1 flex-col gap-10 p-10">
+        <div className="flex justify-end">
+          <span className="flex items-center gap-2 text-[10px] tracking-[0.25em] text-white/40 uppercase">
+            <span className="h-2 w-2 rounded-full bg-emerald-400" />
+            Live Status
+          </span>
+        </div>
+        <div>
+          <h2 className="mb-6 text-[10px] tracking-[0.32em] text-white/35 uppercase">
+            Currently Playing
+          </h2>
+          <div className="grid grid-cols-3 gap-6 border-b border-white/8 pb-6">
+            <div>
+              <p className="mb-1 text-[10px] tracking-[0.2em] text-white/35 uppercase">
+                Venue
+              </p>
+              <p className="text-sm font-medium">Grand Electric Hall, London</p>
+            </div>
+            <div>
+              <p className="mb-1 text-[10px] tracking-[0.2em] text-white/35 uppercase">
+                Seats
+              </p>
+              <p className="text-sm font-medium">14 / 280</p>
+            </div>
+            <div>
+              <p className="mb-1 text-[10px] tracking-[0.2em] text-white/35 uppercase">
+                Ends
+              </p>
+              <p className="text-sm font-medium">Oct 24</p>
+            </div>
+          </div>
+          <button
+            type="button"
+            className="mt-6 w-full bg-cyan-400 py-4 text-xs font-bold tracking-[0.25em] text-black uppercase transition hover:bg-cyan-300 focus:outline-none"
+          >
+            Purchase Tickets →
+          </button>
+        </div>
+        <div>
+          <div className="mb-6 flex items-center justify-between">
+            <h2 className="text-[10px] tracking-[0.32em] text-white/35 uppercase">
+              Showtime History
+            </h2>
+            <span className="text-[10px] text-white/25">2023—2024</span>
+          </div>
+          <div>
+            {HISTORY.map((item) => (
+              <div
+                key={item.idx}
+                className="flex items-center gap-6 border-b border-white/6 py-4"
+              >
+                <span className="w-5 text-xs text-white/25">{item.idx}</span>
+                <div className="flex-1">
+                  <p className="text-sm font-semibold tracking-wide">
+                    {item.name}
+                  </p>
+                  <p className="mt-0.5 text-[10px] tracking-[0.18em] text-white/30">
+                    {item.location}
+                  </p>
+                </div>
+                <div className="text-right">
+                  <p className="text-[10px] tracking-[0.15em] text-white/35 uppercase">
+                    Duration
+                  </p>
+                  <p className="text-sm">{item.duration}</p>
+                </div>
+                <div className="w-12 text-right">
+                  <p className="text-[10px] tracking-[0.15em] text-white/35 uppercase">
+                    Year
+                  </p>
+                  <p className="text-sm font-semibold text-cyan-400">
+                    {item.year}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <button
+            type="button"
+            className="mt-6 flex items-center gap-2 text-[10px] tracking-[0.25em] text-white/30 uppercase transition hover:text-white/50"
+          >
+            View Full Archive ∨
+          </button>
+        </div>
+      </section>
     </main>
   );
 }
