@@ -1,15 +1,15 @@
-import dotenv from "dotenv";
-import { log } from "@phoenix/logger";
-
 import { createApp } from "./app";
+import { startServer } from "./server";
 
-dotenv.config();
-
-const port = process.env.PORT || 3002;
+/**
+ * Entry point for the Phoenix API.
+ * Delegates to server startup logic.
+ */
 const app = createApp();
 
-app.listen(port, () => {
-  log(`api running on ${port}`);
+startServer(app).catch((error) => {
+  console.error("Failed to start server:", error);
+  process.exit(1);
 });
 
 export default app;

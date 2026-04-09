@@ -2,7 +2,7 @@ import cors from "cors";
 import express, { type Express } from "express";
 import morgan from "morgan";
 
-import { registerRoutes } from "./routes/index";
+import { registerRoutes } from "./routes";
 
 /**
  * Create and configure the Express application.
