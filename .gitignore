@@ -19,6 +19,7 @@ logs/
 .env.local
 .env.production
 .env.development
+.env.preview
 
 # OS generated files
 .DS_Store
