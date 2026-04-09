@@ -3,6 +3,9 @@
   "tasks": {
     "build": {
       "env": ["PORT", "NODE_ENV", "TMDB_API_KEY", "TMDB_BASE_URL"]
+    },
+    "start": {
+      "env": ["PORT", "NODE_ENV", "TMDB_API_KEY", "TMDB_BASE_URL"]
     }
   }
 }
