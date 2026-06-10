@@ -3,13 +3,13 @@
   "globalDependencies": [".env"],
   "tasks": {
     "build": {
-      "env": ["PORT", "NODE_ENV", "TMDB_API_KEY", "TMDB_BASE_URL"],
+      "env": ["PORT", "NODE_ENV", "TMDB_API_KEY", "TMDB_BASE_URL", "DATABASE_URL", "DATABASE_URL_UNPOOLED"],
       "inputs": ["$TURBO_DEFAULT$", ".env*"],
       "outputs": ["dist/**"],
       "dependsOn": ["^build"]
     },
     "start": {
-      "env": ["PORT", "NODE_ENV", "TMDB_API_KEY", "TMDB_BASE_URL"],
+      "env": ["PORT", "NODE_ENV", "TMDB_API_KEY", "TMDB_BASE_URL", "DATABASE_URL", "DATABASE_URL_UNPOOLED"],
       "inputs": ["$TURBO_DEFAULT$", ".env*"],
       "dependsOn": ["build"]
     },
