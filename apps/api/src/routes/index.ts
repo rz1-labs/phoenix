@@ -1,4 +1,5 @@
 import express, { type Express, type Router } from "express";
+import tmdbRouter from "./tmdb";
 
 const router: Router = express.Router();
 
@@ -7,13 +8,6 @@ const router: Router = express.Router();
  */
 router.get("/health", (_, res) => {
   return res.json({ ok: true, port: process.env.PORT || 3002 });
-});
-
-/**
- * Legacy status endpoint for compatibility.
- */
-router.get("/status", (_, res) => {
-  return res.json({ ok: true });
 });
 
 /**
@@ -40,6 +34,7 @@ export function registerRoutes(app: Express): void {
 
   // Mount versioned API routes
   app.use("/api", router);
+  app.use("/api/tmdb", tmdbRouter);
 }
 
 export default router;

@@ -12,10 +12,13 @@ export function startServer(app: Express = createApp()): Promise<void> {
 
   return new Promise<void>((resolve, reject) => {
     const server = app.listen(port, () => {
-      log(`api running on ${port}`);
+      log.info(`api running on ${port}`, config);
       resolve();
     });
 
-    server.once("error", reject);
+    server.once("error", (error) => {
+      log.error("Server error", { error });
+      reject(error);
+    });
   });
 }
