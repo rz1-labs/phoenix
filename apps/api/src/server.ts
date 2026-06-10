@@ -16,9 +16,6 @@ export function startServer(app: Express = createApp()): Promise<void> {
       resolve();
     });
 
-    server.once("error", (error) => {
-      log.error("Server error", { error });
-      reject(error);
-    });
+    server.once("error", reject);
   });
 }
