@@ -126,7 +126,7 @@ Use the sections below to track work per app/package.
 
 #### Later
 
-- [ ] fix the bun scripts (lint)
+- [x] fix the bun scripts (lint)
 
 #### Notes
 

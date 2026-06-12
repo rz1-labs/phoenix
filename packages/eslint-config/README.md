@@ -1,3 +1,3 @@
-# `@turbo/eslint-config`
+# `@phoenix/eslint-config`
 
 Collection of internal eslint configurations.
