@@ -5,7 +5,7 @@ jest.spyOn(global.console, "log");
 
 describe("@phoenix/logger", () => {
   it("prints a message", () => {
-    log("hello");
+    log.info("hello");
     expect(console.log).toHaveBeenCalled();
   });
 });
